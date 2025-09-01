@@ -44,10 +44,11 @@
       background:var(--card);
       border-radius:var(--radius);
       box-shadow:0 8px 30px rgba(16,24,40,0.06);
-      padding:22px;
+      padding:18px;
       display:flex;
       flex-direction:column;
-      gap:16px;
+      gap:14px;
+      min-height:200px;
     }
     .avatar{
       width:84px; height:84px;
@@ -55,10 +56,9 @@
       background:linear-gradient(135deg,var(--accent-2),#06b6d4);
       display:flex; align-items:center; justify-content:center;
       color:white; font-weight:700; font-size:26px;
-      margin-bottom:4px;
+      margin:0 auto;
       opacity:0; transform:translateY(8px) scale(.98);
       transition:opacity .45s ease, transform .45s ease;
-      align-self:center;
     }
     .avatar.visible{opacity:1; transform:none}
 
@@ -70,8 +70,23 @@
     .contact-list{font-size:14px;color:var(--muted);line-height:1.6}
     .contact-list a{color:inherit;text-decoration:none}
 
-    .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-    .skill-item{background:#f8fbff;border-radius:10px;padding:8px 10px;font-size:13px;color:var(--accent);box-shadow:0 6px 18px rgba(16,24,40,0.03)}
+    /* skills layout: stable, allows wrapping */
+    .skills-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:8px;
+    }
+    .skill-item{
+      background:#f8fbff;
+      border-radius:10px;
+      padding:8px 10px;
+      font-size:13px;
+      color:var(--accent);
+      box-shadow:0 6px 18px rgba(16,24,40,0.03);
+      white-space:normal;
+      word-break:break-word;
+      overflow-wrap: anywhere;
+    }
 
     .chips{display:flex;flex-wrap:wrap;gap:8px}
     .chip{
@@ -101,7 +116,7 @@
 
     .summary{margin-top:6px;color:#334155;font-size:15px}
 
-    /* EXPERIENCE inside right column, visually separated */
+    /* experience inside right column */
     .experience-block{
       margin-top:18px;
       padding:18px;
@@ -127,14 +142,16 @@
     .fade-up{opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
     .fade-up.visible{opacity:1;transform:none}
 
-    /* responsive */
+    /* responsive tweaks */
     @media (max-width:880px){
       .paper{grid-template-columns:1fr}
       .left{position:relative;order:2}
       .right{order:1}
       .title-main{flex-direction:column;align-items:flex-start;gap:6px}
       .avatar{align-self:flex-start}
+      .skills-grid{grid-template-columns:1fr}
     }
+
     @media print{
       body{background:white;padding:0}
       .paper{box-shadow:none}
@@ -211,11 +228,11 @@
         DevOps-инженер с практическим опытом администрирования, автоматизации процессов и поддержки контейнеризированных сервисов. Умею работать с Docker и Kubernetes, настраивать Nginx, администрировать PostgreSQL, а также строить мониторинг на Prometheus и Grafana. Фокус на доступности и отказоустойчивости инфраструктуры: быстро анализирую проблемы и внедряю рабочие решения.
       </div>
 
-      <!-- experience moved inside right column -->
+      <!-- experience inside right column -->
       <div class="experience-block fade-up" style="transition-delay:.05s">
         <div class="experience-head">
           <h2>Опыт работы</h2>
-          <div class="experience-date muted">Октябрь 2024 — настоящее время · 1 год</div>
+          <div class="experience-date muted">Октябрь 2024 — настоящее время</div>
         </div>
 
         <article class="job">
@@ -237,7 +254,11 @@
 
       <section class="section fade-up" style="transition-delay:.08s">
         <h2>Образование</h2>
-        <div class="muted">СИБИНТЕК, ООО ИК — Информационные технологии, системная интеграция<br>НИТУ «МИСиС», Москва — Прикладная информатика (Неоконченное высшее, 2026)</div>
+        <div class="muted">
+          <p><strong>Неоконченное высшее — 2026</strong></p>
+          <p>Национальный исследовательский технологический университет «МИСиС», Москва</p>
+          <p>Институт компьютерных наук, Прикладная информатика</p>
+        </div>
       </section>
 
       <section class="section fade-up" style="transition-delay:.09s">
