@@ -9,26 +9,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f3f6fb;
+      --bg:#f6f9ff;
       --card:#ffffff;
-      --muted:#708099;
-      --accent-1:#0f172a;
+      --muted:#64748b;
+      --accent:#0f172a;
       --accent-2:#2563eb;
-      --glass: rgba(255,255,255,0.6);
-      --green:#06b6d4;
-      --radius:14px;
+      --glass: rgba(255,255,255,0.7);
+      --radius:12px;
+      --gap:24px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
       background:linear-gradient(180deg,var(--bg),#eef4fb);
-      color:var(--accent-1);
+      color:var(--accent);
       -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:40px 22px;
+      padding:36px 20px;
     }
+
     .paper{
       max-width:1100px;
       margin:0 auto;
@@ -37,53 +37,54 @@
       gap:28px;
       align-items:start;
     }
+
+    /* left column */
     .left{
       position:sticky; top:28px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.9));
-      border-radius:var(--radius);
-      box-shadow:0 8px 30px rgba(16,24,40,0.08);
-      padding:28px;
-      min-height:220px;
-    }
-    .right{
       background:var(--card);
       border-radius:var(--radius);
-      box-shadow:0 10px 40px rgba(16,24,40,0.06);
-      padding:34px;
+      box-shadow:0 8px 30px rgba(16,24,40,0.06);
+      padding:24px;
     }
-    .avatar{
-      width:88px;height:88px;border-radius:18px;background:linear-gradient(135deg,var(--accent-2),#06b6d4);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:26px;margin-bottom:14px;
-    }
-    .name{font-size:20px;font-weight:700;margin:0 0 6px 0;}
-    .meta{font-size:13px;color:var(--muted);margin-bottom:10px}
-    .tag{display:inline-block;background:rgba(37,99,235,0.09);color:var(--accent-2);font-weight:600;padding:6px 10px;border-radius:999px;font-size:13px;margin-right:8px}
+    .avatar{width:84px;height:84px;border-radius:14px;background:linear-gradient(135deg,var(--accent-2),#06b6d4);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:26px;margin-bottom:12px}
+    .name{font-size:18px;font-weight:700;margin:0 0 6px 0}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:12px}
 
-    h2{font-size:16px;margin:0 0 12px 0;color:var(--accent-1);}
+    h2{font-size:15px;margin:0 0 12px 0;color:var(--accent);}
     .section{margin-bottom:18px}
+
     .contact-list{font-size:14px;color:var(--muted);line-height:1.6}
     .contact-list a{color:inherit;text-decoration:none}
 
-    .skill{margin:8px 0}
-    .skill .label{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:6px}
-    .bar{height:10px;background:#eef6ff;border-radius:999px;overflow:hidden}
-    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent-2),var(--green));width:60%;border-radius:999px;transition:width .7s ease}
+    /* skills as simple lists/chips */
+    .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .skill-item{background:#f8fbff;border-radius:10px;padding:8px 10px;font-size:13px;color:var(--accent);box-shadow:0 6px 18px rgba(16,24,40,0.03)}
 
     .chips{display:flex;flex-wrap:wrap;gap:8px}
-    .chip{background:linear-gradient(180deg,#f6fbff,#ffffff);padding:8px 10px;border-radius:10px;font-size:13px;color:var(--accent-1);box-shadow:0 4px 14px rgba(37,99,235,0.06)}
+    .chip{background:linear-gradient(180deg,#ffffff,#f6fbff);padding:8px 10px;border-radius:8px;font-size:13px;color:var(--accent);box-shadow:0 6px 18px rgba(16,24,40,0.03)}
 
+    /* right column */
+    .right{background:var(--card);border-radius:var(--radius);box-shadow:0 10px 40px rgba(16,24,40,0.06);padding:34px}
     .title-main{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .title-main h1{font-size:26px;margin:0;}
+    .title-main h1{font-size:28px;margin:0}
     .subtitle{color:var(--muted);font-weight:600}
 
     .summary{margin-top:12px;color:#334155;font-size:15px}
 
-    .job{margin-bottom:18px}
+    .job{margin-bottom:14px}
     .job h3{margin:0;font-size:15px}
     .job .org{color:var(--muted);font-size:13px;margin-top:6px}
-    .job ul{margin:10px 0 0 16px}
+    .job ul{margin:10px 0 0 18px}
     .job li{margin-bottom:6px}
 
-    .footer{display:flex;justify-content:space-between;align-items:center;margin-top:18px;color:var(--muted);font-size:13px}
+    .muted{color:var(--muted);font-size:13px}
+
+    .footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px;color:var(--muted);font-size:13px}
+
+    /* subtle animations (practical, unobtrusive) */
+    .fade-up{opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease}
+    .visible{opacity:1;transform:none}
+    .chip:hover{transform:translateY(-4px);transition:transform .25s ease}
 
     /* responsive */
     @media (max-width:880px){
@@ -92,19 +93,11 @@
       .right{order:2}
     }
 
-    /* print */
     @media print{
       body{background:white;padding:0}
       .paper{box-shadow:none}
       .left{position:static}
     }
-
-    /* subtle entrance */
-    .bar > i{width:0}
-    html.loaded .bar > i{width:var(--w,60%)}
-
-    /* small helpers */
-    .muted{color:var(--muted);font-size:13px}
   </style>
 </head>
 <body>
@@ -112,7 +105,7 @@
     <aside class="left">
       <div class="avatar">АЖ</div>
       <div class="name">Жданов Александр Александрович</div>
-      <div class="meta">DevOps-инженер • 22 года</div>
+      <div class="meta">DevOps Engineer · 22 года</div>
 
       <div class="section">
         <h2>Контакты</h2>
@@ -127,22 +120,16 @@
       </div>
 
       <div class="section">
-        <h2>Навыки</h2>
-        <div class="skill">
-          <div class="label"><span>Linux</span><span>85%</span></div>
-          <div class="bar" aria-hidden><i style="--w:85%"></i></div>
-        </div>
-        <div class="skill">
-          <div class="label"><span>Docker</span><span>80%</span></div>
-          <div class="bar" aria-hidden><i style="--w:80%"></i></div>
-        </div>
-        <div class="skill">
-          <div class="label"><span>Kubernetes / Helm</span><span>70%</span></div>
-          <div class="bar" aria-hidden><i style="--w:70%"></i></div>
-        </div>
-        <div class="skill">
-          <div class="label"><span>PostgreSQL</span><span>65%</span></div>
-          <div class="bar" aria-hidden><i style="--w:65%"></i></div>
+        <h2>Ключевые навыки</h2>
+        <div class="skills-grid">
+          <div class="skill-item">Linux — администрирование</div>
+          <div class="skill-item">Docker — контейнеризация</div>
+          <div class="skill-item">Kubernetes / Helm — деплой и управление</div>
+          <div class="skill-item">PostgreSQL — бэкап и восстановление</div>
+          <div class="skill-item">Nginx — настройка веб‑сервисов</div>
+          <div class="skill-item">Prometheus / Grafana — мониторинг</div>
+          <div class="skill-item">Bash / автоматизация</div>
+          <div class="skill-item">Ansible / конфигурация</div>
         </div>
       </div>
 
@@ -165,50 +152,47 @@
 
       <div class="section">
         <h2>Языки</h2>
-        <div class="muted">Русский — Родной<br>Английский — B2 (средне-продвинутый)</div>
+        <div class="muted">Русский — Родной<br>Английский — B2 (средне‑продвинутый)</div>
       </div>
     </aside>
 
     <main class="right">
       <div class="title-main">
         <div>
-          <h1>Жданов Александр</h1>
-          <div class="subtitle">DevOps-инженер</div>
+          <h1 class="fade-up">Жданов Александр</h1>
+          <div class="subtitle muted">DevOps Engineer</div>
         </div>
-        <div class="tag">DevOps · CI/CD · Infra</div>
+        <div class="tag chip">DevOps · CI/CD · Infra</div>
       </div>
 
-      <div class="summary">
-        DevOps-инженер с практическим опытом администрирования, автоматизации процессов и поддержки контейнеризированных сервисов. Умею работать с Docker и Kubernetes, настраивать Nginx, администрировать PostgreSQL, а также строить мониторинг на Prometheus и Grafana. Фокус на доступности и устойчивости инфраструктуры — быстро анализирую проблемы и внедряю решения.
+      <div class="summary fade-up" style="transition-delay:.05s">
+        DevOps‑инженер с практическим опытом администрирования, автоматизации процессов и поддержки контейнеризированных сервисов. Умею работать с Docker и Kubernetes, настраивать Nginx, администрировать PostgreSQL, а также строить мониторинг на Prometheus и Grafana. Фокус на доступности и отказоустойчивости инфраструктуры: быстро анализирую проблемы и внедряю рабочие решения.
       </div>
 
       <section class="section">
-        <h2>Опыт работы</h2>
-        <article class="job">
+        <h2 class="fade-up">Опыт работы</h2>
+        <article class="job fade-up" style="transition-delay:.06s">
           <h3>Инженер по серверной инфраструктуре</h3>
-          <div class="org">СИБИНТЕК, Москва <span class="muted">• Октябрь 2024 — настоящее время (1 год)</span></div>
+          <div class="org muted">СИБИНТЕК, Москва <span class="muted">• Октябрь 2024 — настоящее время</span></div>
           <ul>
             <li>Администрирование серверов Linux: установка, настройка, работа с логами.</li>
             <li>Поддержка инфраструктуры: контроль доступности сервисов, диагностика и устранение инцидентов.</li>
-            <li>Работа с контейнерами: запуск и сопровождение приложений в Docker.</li>
-            <li>Kubernetes: деплой сервисов через Helm, управление Pod/Deployment/Service, анализ логов.</li>
-            <li>Настройка веб-сервисов в Nginx: проксирование и базовые конфигурации.</li>
-            <li>PostgreSQL: управление пользователями, резервное копирование и восстановление.</li>
-            <li>Мониторинг: Prometheus и Grafana (метрики, дашборды, алерты).</li>
-            <li>Автоматизация: Bash-скрипты (резервное копирование, обновления, мониторинг).</li>
+            <li>Работа с контейнерами и оркестрацией: Docker, Kubernetes (Helm).</li>
+            <li>Мониторинг и алерты: Prometheus, Grafana.</li>
+            <li>Автоматизация задач: Bash‑скрипты, Ansible.</li>
             <li>Документирование инфраструктуры и взаимодействие с командами разработки.</li>
           </ul>
         </article>
       </section>
 
       <section class="section">
-        <h2>Образование</h2>
-        <div class="muted">СИБИНТЕК, ООО ИК — Информационные технологии, системная интеграция<br>НИТУ «МИСиС», Москва — Прикладная информатика (Неоконченное высшее, 2026)</div>
+        <h2 class="fade-up">Образование</h2>
+        <div class="muted fade-up" style="transition-delay:.07s">СИБИНТЕК, ООО ИК — Информационные технологии, системная интеграция<br>НИТУ «МИСиС», Москва — Прикладная информатика (Неоконченное высшее, 2026)</div>
       </section>
 
       <section class="section">
-        <h2>Дополнительно</h2>
-        <p class="muted">Готовность: полная занятость, удаленная работа. Желаемая должность: DevOps-инженер. Опыт работы: 1 год. Место проживания: Москва. Резюме обновлено 1 сентября 2025 в 20:44.</p>
+        <h2 class="fade-up">Дополнительно</h2>
+        <p class="muted fade-up" style="transition-delay:.08s">Готовность: полная занятость, удаленная работа. Желательная должность: DevOps‑инженер. Опыт работы: 1 год. Место проживания: Москва. Резюме обновлено 1 сентября 2025 в 20:44.</p>
       </section>
 
       <div class="footer">
@@ -219,8 +203,11 @@
   </div>
 
   <script>
-    // плавная анимация баров после загрузки
-    window.addEventListener('load',()=>document.documentElement.classList.add('loaded'));
+    // trigger unobtrusive reveal animations on scroll
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    },{threshold:0.12});
+    document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
   </script>
 </body>
 </html>
