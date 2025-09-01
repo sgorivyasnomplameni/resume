@@ -15,6 +15,7 @@
       --accent:#0f172a;
       --accent-2:#2563eb;
       --radius:12px;
+      --gap:24px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -35,6 +36,18 @@
       gap:28px;
       align-items:start;
     }
+
+    /* full-width experience row */
+    .experience{
+      grid-column: 1 / -1;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:0 10px 40px rgba(16,24,40,0.06);
+      padding:28px;
+      margin-bottom:8px;
+    }
+    .experience h2{margin:0 0 10px 0;font-size:18px;color:var(--accent)}
+    .experience .summary-line{color:var(--muted);font-size:14px;margin-bottom:12px}
 
     /* left column */
     .left{
@@ -84,22 +97,10 @@
     .title-main h1{font-size:28px;margin:0}
     .subtitle{color:var(--muted);font-weight:600}
 
-    .tag{
-      display:inline-block;
-      padding:8px 12px;
-      border-radius:10px;
-      background:linear-gradient(180deg,#ffffff,#f6fbff);
-      box-shadow:0 8px 20px rgba(37,99,235,0.04);
-      font-weight:600;
-      opacity:0; transform:translateY(8px) scale(.98);
-      transition:opacity .45s ease, transform .45s ease;
-    }
-    .tag.visible{opacity:1; transform:none}
-
     .summary{margin-top:12px;color:#334155;font-size:15px}
 
     .job{margin-bottom:14px}
-    .job h3{margin:0;font-size:15px}
+    .job h3{margin:0;font-size:16px}
     .job .org{color:var(--muted);font-size:13px;margin-top:6px}
     .job ul{margin:10px 0 0 18px}
     .job li{margin-bottom:6px}
@@ -117,17 +118,45 @@
       .paper{grid-template-columns:1fr;}
       .left{position:relative}
       .right{order:2}
+      .experience{padding:20px}
     }
 
     @media print{
       body{background:white;padding:0}
       .paper{box-shadow:none}
       .left{position:static}
+      .experience{box-shadow:none}
     }
   </style>
 </head>
 <body>
   <div class="paper" role="main">
+    <!-- опыт работы вынесен отдельной полосой -->
+    <section class="experience fade-up" id="experience">
+      <h2>Опыт работы — 1 год</h2>
+      <div class="summary-line">Октябрь 2024 — настоящее время</div>
+
+      <article class="job">
+        <h3>Инженер по серверной инфраструктуре</h3>
+        <div class="org muted">
+          СИБИНТЕК, ООО ИК — Москва
+          · <a href="https://www.sibintek.ru" target="_blank" rel="noopener noreferrer">sibintek.ru</a>
+        </div>
+
+        <ul>
+          <li>Администрирование серверов Linux: установка, конфигурация, работа с логами и анализ инцидентов.</li>
+          <li>Поддержка доступности сервисов: мониторинг, диагностика и оперативное устранение проблем.</li>
+          <li>Контейнеризация и оркестрация: запуск и сопровождение приложений в Docker; деплой через Kubernetes/Helm.</li>
+          <li>Настройка веб-слоя: Nginx — проксирование, конфигурация виртуальных хостов, базовая безопасность.</li>
+          <li>Базы данных: PostgreSQL — управление пользователями, резервное копирование и восстановление.</li>
+          <li>Мониторинг и оповещения: сбор метрик и дашбордов в Prometheus и Grafana; настройка алертов.</li>
+          <li>Автоматизация и скрипты: Bash-скрипты для бэкапа, обновлений и рутинных задач; базовые playbooks на Ansible.</li>
+          <li>Сетевые задачи: настройка интерфейсов, диагностика TCP/IP-проблем.</li>
+          <li>Документирование инфраструктуры и взаимодействие с командами разработки для быстрого решения инцидентов.</li>
+        </ul>
+      </article>
+    </section>
+
     <aside class="left">
       <div class="avatar" aria-hidden>АЖ</div>
       <div class="name">Жданов Александр Александрович</div>
@@ -196,22 +225,6 @@
       </div>
 
       <section class="section">
-        <h2 class="fade-up">Опыт работы</h2>
-        <article class="job fade-up" style="transition-delay:.06s">
-          <h3>Инженер по серверной инфраструктуре</h3>
-          <div class="org muted">СИБИНТЕК, Москва <span class="muted">• Октябрь 2024 — настоящее время</span></div>
-          <ul>
-            <li>Администрирование серверов Linux: установка, настройка, работа с логами.</li>
-            <li>Поддержка инфраструктуры: контроль доступности сервисов, диагностика и устранение инцидентов.</li>
-            <li>Работа с контейнерами и оркестрацией: Docker, Kubernetes (Helm).</li>
-            <li>Мониторинг и алерты: Prometheus, Grafana.</li>
-            <li>Автоматизация задач: Bash-скрипты, Ansible.</li>
-            <li>Документирование инфраструктуры и взаимодействие с командами разработки.</li>
-          </ul>
-        </article>
-      </section>
-
-      <section class="section">
         <h2 class="fade-up">Образование</h2>
         <div class="muted fade-up" style="transition-delay:.07s">СИБИНТЕК, ООО ИК — Информационные технологии, системная интеграция<br>НИТУ «МИСиС», Москва — Прикладная информатика (Неоконченное высшее, 2026)</div>
       </section>
@@ -240,15 +253,10 @@
     }, { threshold: 0.12 });
 
     document.addEventListener('DOMContentLoaded', () => {
-      // observe elements with fade-up
-      document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-
-      // add fade-up behavior to avatar and tag, then observe them
+      // observe fades + experience + avatar + tag
+      document.querySelectorAll('.fade-up, .experience').forEach(el => obs.observe(el));
       const extras = document.querySelectorAll('.avatar, .tag');
-      extras.forEach(el => {
-        el.classList.add('fade-up');
-        obs.observe(el);
-      });
+      extras.forEach(el => { el.classList.add('fade-up'); obs.observe(el); });
     });
   </script>
 </body>
