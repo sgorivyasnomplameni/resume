@@ -15,7 +15,7 @@
       --accent:#0f172a;
       --accent-2:#2563eb;
       --radius:12px;
-      --gap:24px;
+      --gap:22px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -25,29 +25,18 @@
       background:linear-gradient(180deg,var(--bg),#eef4fb);
       color:var(--accent);
       -webkit-font-smoothing:antialiased;
-      padding:36px 20px;
+      padding:32px 18px;
     }
 
+    /* layout */
     .paper{
       max-width:1100px;
       margin:0 auto;
       display:grid;
-      grid-template-columns: 320px 1fr;
+      grid-template-columns: 300px 1fr;
       gap:28px;
       align-items:start;
     }
-
-    /* full-width experience row */
-    .experience{
-      grid-column: 1 / -1;
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:0 10px 40px rgba(16,24,40,0.06);
-      padding:28px;
-      margin-bottom:8px;
-    }
-    .experience h2{margin:0 0 10px 0;font-size:18px;color:var(--accent)}
-    .experience .summary-line{color:var(--muted);font-size:14px;margin-bottom:12px}
 
     /* left column */
     .left{
@@ -55,7 +44,10 @@
       background:var(--card);
       border-radius:var(--radius);
       box-shadow:0 8px 30px rgba(16,24,40,0.06);
-      padding:24px;
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
     }
     .avatar{
       width:84px; height:84px;
@@ -63,22 +55,21 @@
       background:linear-gradient(135deg,var(--accent-2),#06b6d4);
       display:flex; align-items:center; justify-content:center;
       color:white; font-weight:700; font-size:26px;
-      margin-bottom:12px;
+      margin-bottom:4px;
       opacity:0; transform:translateY(8px) scale(.98);
       transition:opacity .45s ease, transform .45s ease;
+      align-self:center;
     }
     .avatar.visible{opacity:1; transform:none}
 
-    .name{font-size:18px;font-weight:700;margin:0 0 6px 0}
-    .meta{font-size:13px;color:var(--muted);margin-bottom:12px}
+    .name{font-size:18px;font-weight:700;margin:6px 0 0 0;text-align:center}
+    .meta{font-size:13px;color:var(--muted);margin:0;text-align:center}
 
-    h2{font-size:15px;margin:0 0 12px 0;color:var(--accent);}
-    .section{margin-bottom:18px}
-
+    h2{font-size:15px;margin:0 0 10px 0;color:var(--accent);}
+    .section{margin-bottom:6px}
     .contact-list{font-size:14px;color:var(--muted);line-height:1.6}
     .contact-list a{color:inherit;text-decoration:none}
 
-    /* skills as simple lists/chips */
     .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
     .skill-item{background:#f8fbff;border-radius:10px;padding:8px 10px;font-size:13px;color:var(--accent);box-shadow:0 6px 18px rgba(16,24,40,0.03)}
 
@@ -92,14 +83,37 @@
     .chip:hover{transform:translateY(-4px); box-shadow:0 12px 30px rgba(37,99,235,0.08);}
 
     /* right column */
-    .right{background:var(--card);border-radius:var(--radius);box-shadow:0 10px 40px rgba(16,24,40,0.06);padding:34px}
-    .title-main{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .right{
+      background:linear-gradient(180deg,var(--card),#fbfdff);
+      border-radius:var(--radius);
+      box-shadow:0 10px 40px rgba(16,24,40,0.06);
+      padding:34px;
+    }
+    .title-main{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
     .title-main h1{font-size:28px;margin:0}
     .subtitle{color:var(--muted);font-weight:600}
 
-    .summary{margin-top:12px;color:#334155;font-size:15px}
+    .tag{
+      display:inline-block;padding:8px 12px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#f6fbff);box-shadow:0 8px 20px rgba(37,99,235,0.04);font-weight:600;
+      opacity:0; transform:translateY(8px) scale(.98); transition:opacity .45s ease, transform .45s ease;
+    }
+    .tag.visible{opacity:1; transform:none}
 
-    .job{margin-bottom:14px}
+    .summary{margin-top:6px;color:#334155;font-size:15px}
+
+    /* EXPERIENCE inside right column, visually separated */
+    .experience-block{
+      margin-top:18px;
+      padding:18px;
+      border-radius:10px;
+      background:linear-gradient(180deg,#ffffff,#fbfcff);
+      box-shadow:0 6px 18px rgba(16,24,40,0.03);
+    }
+    .experience-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}
+    .experience-head h2{margin:0;font-size:16px}
+    .experience-date{color:var(--muted);font-size:13px}
+
+    .job{margin-bottom:12px}
     .job h3{margin:0;font-size:16px}
     .job .org{color:var(--muted);font-size:13px;margin-top:6px}
     .job ul{margin:10px 0 0 18px}
@@ -109,54 +123,27 @@
 
     .footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px;color:var(--muted);font-size:13px}
 
-    /* subtle animations (practical, unobtrusive) */
+    /* fade animations */
     .fade-up{opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
     .fade-up.visible{opacity:1;transform:none}
 
     /* responsive */
     @media (max-width:880px){
-      .paper{grid-template-columns:1fr;}
-      .left{position:relative}
-      .right{order:2}
-      .experience{padding:20px}
+      .paper{grid-template-columns:1fr}
+      .left{position:relative;order:2}
+      .right{order:1}
+      .title-main{flex-direction:column;align-items:flex-start;gap:6px}
+      .avatar{align-self:flex-start}
     }
-
     @media print{
       body{background:white;padding:0}
       .paper{box-shadow:none}
       .left{position:static}
-      .experience{box-shadow:none}
     }
   </style>
 </head>
 <body>
   <div class="paper" role="main">
-    <!-- опыт работы вынесен отдельной полосой -->
-    <section class="experience fade-up" id="experience">
-      <h2>Опыт работы — 1 год</h2>
-      <div class="summary-line">Октябрь 2024 — настоящее время</div>
-
-      <article class="job">
-        <h3>Инженер по серверной инфраструктуре</h3>
-        <div class="org muted">
-          СИБИНТЕК, ООО ИК — Москва
-          · <a href="https://www.sibintek.ru" target="_blank" rel="noopener noreferrer">sibintek.ru</a>
-        </div>
-
-        <ul>
-          <li>Администрирование серверов Linux: установка, конфигурация, работа с логами и анализ инцидентов.</li>
-          <li>Поддержка доступности сервисов: мониторинг, диагностика и оперативное устранение проблем.</li>
-          <li>Контейнеризация и оркестрация: запуск и сопровождение приложений в Docker; деплой через Kubernetes/Helm.</li>
-          <li>Настройка веб-слоя: Nginx — проксирование, конфигурация виртуальных хостов, базовая безопасность.</li>
-          <li>Базы данных: PostgreSQL — управление пользователями, резервное копирование и восстановление.</li>
-          <li>Мониторинг и оповещения: сбор метрик и дашбордов в Prometheus и Grafana; настройка алертов.</li>
-          <li>Автоматизация и скрипты: Bash-скрипты для бэкапа, обновлений и рутинных задач; базовые playbooks на Ansible.</li>
-          <li>Сетевые задачи: настройка интерфейсов, диагностика TCP/IP-проблем.</li>
-          <li>Документирование инфраструктуры и взаимодействие с командами разработки для быстрого решения инцидентов.</li>
-        </ul>
-      </article>
-    </section>
-
     <aside class="left">
       <div class="avatar" aria-hidden>АЖ</div>
       <div class="name">Жданов Александр Александрович</div>
@@ -165,7 +152,7 @@
       <div class="section">
         <h2>Контакты</h2>
         <div class="contact-list">
-          <div>📞 <a href="tel:+79775816265">+7 (977) 581-62-65</a> — предпочитаемый способ связи</div>
+          <div>📞 <a href="tel:+79775816265">+7 (977) 581-62-65</a></div>
           <div>✉️ <a href="mailto:gosurasu@gmail.com">gosurasu@gmail.com</a></div>
           <div>Telegram: <a href="https://t.me/ignoretheparty" target="_blank" rel="noopener noreferrer">@ignoretheparty</a></div>
           <div>Город: Москва</div>
@@ -177,14 +164,14 @@
       <div class="section">
         <h2>Ключевые навыки</h2>
         <div class="skills-grid">
-          <div class="skill-item">Linux — администрирование</div>
-          <div class="skill-item">Docker — контейнеризация</div>
-          <div class="skill-item">Kubernetes / Helm — деплой и управление</div>
-          <div class="skill-item">PostgreSQL — бэкап и восстановление</div>
-          <div class="skill-item">Nginx — настройка веб-сервисов</div>
-          <div class="skill-item">Prometheus / Grafana — мониторинг</div>
-          <div class="skill-item">Bash / автоматизация</div>
-          <div class="skill-item">Ansible / конфигурация</div>
+          <div class="skill-item">Linux: администрирование</div>
+          <div class="skill-item">Docker: контейнеризация</div>
+          <div class="skill-item">Kubernetes / Helm: деплой и управление</div>
+          <div class="skill-item">PostgreSQL: бэкап и восстановление</div>
+          <div class="skill-item">Nginx: конфигурация веб-слоя</div>
+          <div class="skill-item">Prometheus / Grafana: мониторинг</div>
+          <div class="skill-item">Bash: автоматизация</div>
+          <div class="skill-item">Ansible: конфигурация</div>
         </div>
       </div>
 
@@ -220,21 +207,45 @@
         <div class="tag chip" aria-hidden>DevOps · CI/CD · Infra</div>
       </div>
 
-      <div class="summary fade-up" style="transition-delay:.05s">
+      <div class="summary fade-up" style="transition-delay:.03s">
         DevOps-инженер с практическим опытом администрирования, автоматизации процессов и поддержки контейнеризированных сервисов. Умею работать с Docker и Kubernetes, настраивать Nginx, администрировать PostgreSQL, а также строить мониторинг на Prometheus и Grafana. Фокус на доступности и отказоустойчивости инфраструктуры: быстро анализирую проблемы и внедряю рабочие решения.
       </div>
 
-      <section class="section">
-        <h2 class="fade-up">Образование</h2>
-        <div class="muted fade-up" style="transition-delay:.07s">СИБИНТЕК, ООО ИК — Информационные технологии, системная интеграция<br>НИТУ «МИСиС», Москва — Прикладная информатика (Неоконченное высшее, 2026)</div>
+      <!-- experience moved inside right column -->
+      <div class="experience-block fade-up" style="transition-delay:.05s">
+        <div class="experience-head">
+          <h2>Опыт работы</h2>
+          <div class="experience-date muted">Октябрь 2024 — настоящее время · 1 год</div>
+        </div>
+
+        <article class="job">
+          <h3>Инженер по серверной инфраструктуре</h3>
+          <div class="org muted">СИБИНТЕК, ООО ИК — Москва · <a href="https://www.sibintek.ru" target="_blank" rel="noopener noreferrer">sibintek.ru</a></div>
+
+          <ul>
+            <li>Администрирование серверов Linux: установка, конфигурация, работа с логами и анализ инцидентов.</li>
+            <li>Поддержка доступности сервисов: мониторинг, диагностика и оперативное устранение проблем.</li>
+            <li>Контейнеризация и оркестрация: запуск и сопровождение приложений в Docker; деплой через Kubernetes/Helm.</li>
+            <li>Настройка веб-слоя: Nginx — проксирование и базовые настройки безопасности.</li>
+            <li>Базы данных: PostgreSQL — резервное копирование, восстановление, управление пользователями.</li>
+            <li>Мониторинг и оповещения: Prometheus, Grafana — сбор метрик, дашборды, алерты.</li>
+            <li>Автоматизация: Bash-скрипты, Ansible — задачи бэкапа, обновлений и рутинной работы.</li>
+            <li>Документирование инфраструктуры и взаимодействие с командами разработки.</li>
+          </ul>
+        </article>
+      </div>
+
+      <section class="section fade-up" style="transition-delay:.08s">
+        <h2>Образование</h2>
+        <div class="muted">СИБИНТЕК, ООО ИК — Информационные технологии, системная интеграция<br>НИТУ «МИСиС», Москва — Прикладная информатика (Неоконченное высшее, 2026)</div>
       </section>
 
-      <section class="section">
-        <h2 class="fade-up">Дополнительно</h2>
-        <p class="muted fade-up" style="transition-delay:.08s">Готовность: полная занятость, удаленная работа. Желаемая должность: DevOps-инженер. Опыт работы: 1 год. Место проживания: Москва. Резюме обновлено 1 сентября 2025 в 20:44.</p>
+      <section class="section fade-up" style="transition-delay:.09s">
+        <h2>Дополнительно</h2>
+        <p class="muted">Готовность: полная занятость, удаленная работа. Желаемая должность: DevOps-инженер. Опыт работы: 1 год. Место проживания: Москва. Резюме обновлено 1 сентября 2025 в 20:44.</p>
       </section>
 
-      <div class="footer">
+      <div class="footer fade-up" style="transition-delay:.1s">
         <div class="muted">Навыки: Linux · Bash · PostgreSQL · Docker · Kubernetes · Helm · Nginx · Prometheus · Grafana · TCP/IP · Ansible · Git</div>
         <div class="muted">© Жданов Александр</div>
       </div>
@@ -253,8 +264,8 @@
     }, { threshold: 0.12 });
 
     document.addEventListener('DOMContentLoaded', () => {
-      // observe fades + experience + avatar + tag
-      document.querySelectorAll('.fade-up, .experience').forEach(el => obs.observe(el));
+      // observe fades + avatar + tag
+      document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
       const extras = document.querySelectorAll('.avatar, .tag');
       extras.forEach(el => { el.classList.add('fade-up'); obs.observe(el); });
     });
