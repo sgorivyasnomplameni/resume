@@ -6,7 +6,7 @@
   <title>Жданов Александр — DevOps Engineer</title>
   <meta name="description" content="DevOps Engineer · Kubernetes · Docker · CI/CD · Monitoring" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#f6f9ff;
@@ -18,196 +18,104 @@
       --gap:22px;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      font-family:Inter, system-ui, sans-serif;
       background:linear-gradient(180deg,var(--bg),#eef4fb);
       color:var(--accent);
       -webkit-font-smoothing:antialiased;
       padding:32px 18px;
     }
-
-    /* layout */
     .paper{
       max-width:1100px;
       margin:0 auto;
       display:grid;
-      grid-template-columns: 300px 1fr;
+      grid-template-columns:300px 1fr;
       gap:28px;
-      align-items:start;
     }
-
-    /* left column */
     .left{
-      position:sticky; top:28px;
+      position:sticky;top:28px;
       background:var(--card);
       border-radius:var(--radius);
       box-shadow:0 8px 30px rgba(16,24,40,0.06);
       padding:18px;
       display:flex;
       flex-direction:column;
-      gap:14px;
-      min-height:200px;
+      gap:18px;
     }
     .avatar{
-      width:84px; height:84px;
+      width:84px;height:84px;
       border-radius:14px;
       background:linear-gradient(135deg,var(--accent-2),#06b6d4);
-      display:flex; align-items:center; justify-content:center;
-      color:white; font-weight:700; font-size:26px;
-      margin:0 auto;
-      opacity:0; transform:translateY(8px) scale(.98);
-      transition:opacity .45s ease, transform .45s ease;
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-weight:700;font-size:26px;
+      margin:0 auto 10px;
     }
-    .avatar.visible{opacity:1; transform:none}
-
-    .name{font-size:18px;font-weight:700;margin:6px 0 0 0;text-align:center}
-    .meta{font-size:13px;color:var(--muted);margin:0;text-align:center}
-
-    h2{font-size:15px;margin:0 0 10px 0;color:var(--accent);}
-    .section{margin-bottom:6px}
+    h2{font-size:15px;margin:0 0 10px;color:var(--accent)}
     .contact-list{font-size:14px;color:var(--muted);line-height:1.6}
     .contact-list a{color:inherit;text-decoration:none}
-
-    /* skills layout: stable, allows wrapping */
-    .skills-grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap:8px;
-    }
+    .skills-grid{display:flex;flex-wrap:wrap;gap:8px}
     .skill-item{
-      background:#f8fbff;
-      border-radius:10px;
-      padding:8px 10px;
-      font-size:13px;
-      color:var(--accent);
+      background:#f8fbff;border-radius:8px;
+      padding:6px 10px;font-size:13px;
       box-shadow:0 6px 18px rgba(16,24,40,0.03);
-      white-space:normal;
-      word-break:break-word;
-      overflow-wrap: anywhere;
     }
-
-    .chips{display:flex;flex-wrap:wrap;gap:8px}
-    .chip{
-      background:linear-gradient(180deg,#ffffff,#f6fbff);
-      padding:8px 10px;border-radius:8px;font-size:13px;color:var(--accent);
-      box-shadow:0 6px 18px rgba(16,24,40,0.03);
-      transition:transform .22s ease, box-shadow .22s ease;
-    }
-    .chip:hover{transform:translateY(-4px); box-shadow:0 12px 30px rgba(37,99,235,0.08);}
-
-    /* right column */
+    .muted{color:var(--muted);font-size:13px}
     .right{
-      background:linear-gradient(180deg,var(--card),#fbfdff);
+      background:var(--card);
       border-radius:var(--radius);
       box-shadow:0 10px 40px rgba(16,24,40,0.06);
       padding:34px;
     }
-    .title-main{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
     .title-main h1{font-size:28px;margin:0}
-    .subtitle{color:var(--muted);font-weight:600}
-
-    .tag{
-      display:inline-block;padding:8px 12px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#f6fbff);box-shadow:0 8px 20px rgba(37,99,235,0.04);font-weight:600;
-      opacity:0; transform:translateY(8px) scale(.98); transition:opacity .45s ease, transform .45s ease;
-    }
-    .tag.visible{opacity:1; transform:none}
-
-    .summary{margin-top:6px;color:#334155;font-size:15px}
-
-    /* experience inside right column */
-    .experience-block{
-      margin-top:18px;
-      padding:18px;
-      border-radius:10px;
-      background:linear-gradient(180deg,#ffffff,#fbfcff);
-      box-shadow:0 6px 18px rgba(16,24,40,0.03);
-    }
-    .experience-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}
-    .experience-head h2{margin:0;font-size:16px}
-    .experience-date{color:var(--muted);font-size:13px}
-
-    .job{margin-bottom:12px}
+    .subtitle{color:var(--muted);font-weight:600;margin-bottom:12px}
+    .summary{margin:10px 0 20px;font-size:15px;color:#334155}
+    .experience-block{margin-top:20px}
+    .experience-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
     .job h3{margin:0;font-size:16px}
-    .job .org{color:var(--muted);font-size:13px;margin-top:6px}
-    .job ul{margin:10px 0 0 0; padding-left: 18px;}
-    .job li{margin-bottom:6px; line-height: 1.5;}
-
-    .muted{color:var(--muted);font-size:13px}
-
-    .footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px;color:var(--muted);font-size:13px}
-
-    /* fade animations */
-    .fade-up{opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
-    .fade-up.visible{opacity:1;transform:none}
-
-    /* responsive tweaks */
-    @media (max-width:880px){
+    .job .org{color:var(--muted);font-size:13px;margin-top:4px}
+    .job ul{margin:10px 0 0;padding-left:18px}
+    .job li{margin-bottom:6px;line-height:1.5}
+    .footer{margin-top:20px;display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+    @media(max-width:880px){
       .paper{grid-template-columns:1fr}
-      .left{position:relative;order:2}
-      .right{order:1}
-      .title-main{flex-direction:column;align-items:flex-start;gap:6px}
-      .avatar{align-self:flex-start}
-      .skills-grid{grid-template-columns:1fr}
-    }
-
-    @media print{
-      body{background:white;padding:0}
-      .paper{box-shadow:none}
-      .left{position:static}
+      .left{position:relative}
     }
   </style>
 </head>
 <body>
-  <div class="paper" role="main">
+  <div class="paper">
     <aside class="left">
-      <div class="avatar" aria-hidden>АЖ</div>
-      <div class="name">Александр Жданов</div>
-      <div class="meta">DevOps Engineer</div>
+      <div class="avatar">АЖ</div>
 
-      <div class="section">
+      <div>
         <h2>Контакты</h2>
         <div class="contact-list">
           <div>📞 <a href="tel:+79775816265">+7 (977) 581-62-65</a></div>
           <div>✉️ <a href="mailto:gosurasu@gmail.com">gosurasu@gmail.com</a></div>
-          <div>📱 <a href="https://t.me/ignoretheparty" target="_blank" rel="noopener noreferrer">Telegram</a></div>
+          <div>📱 <a href="https://t.me/ignoretheparty" target="_blank">Telegram</a></div>
           <div>📍 Москва</div>
         </div>
       </div>
 
-      <div class="section">
-        <h2>Ключевые навыки</h2>
+      <div>
+        <h2>Навыки и технологии</h2>
         <div class="skills-grid">
-          <div class="skill-item">Администрирование Linux</div>
-          <div class="skill-item">Контейнеризация (Docker)</div>
-          <div class="skill-item">Оркестрация (Kubernetes)</div>
-          <div class="skill-item">Веб-серверы (Nginx)</div>
-          <div class="skill-item">Базы данных (PostgreSQL)</div>
-          <div class="skill-item">Мониторинг (Prometheus/Grafana)</div>
-          <div class="skill-item">Автоматизация (Bash)</div>
-          <div class="skill-item">Конфигурация (Ansible)</div>
+          <div class="skill-item">Linux</div>
+          <div class="skill-item">Docker</div>
+          <div class="skill-item">Kubernetes</div>
+          <div class="skill-item">Helm</div>
+          <div class="skill-item">Nginx</div>
+          <div class="skill-item">PostgreSQL</div>
+          <div class="skill-item">Prometheus</div>
+          <div class="skill-item">Grafana</div>
+          <div class="skill-item">Bash</div>
+          <div class="skill-item">Ansible</div>
+          <div class="skill-item">Git</div>
         </div>
       </div>
 
-      <div class="section">
-        <h2>Технологии</h2>
-        <div class="chips">
-          <div class="chip">Linux</div>
-          <div class="chip">Docker</div>
-          <div class="chip">Kubernetes</div>
-          <div class="chip">Helm</div>
-          <div class="chip">Nginx</div>
-          <div class="chip">PostgreSQL</div>
-          <div class="chip">Prometheus</div>
-          <div class="chip">Grafana</div>
-          <div class="chip">Bash</div>
-          <div class="chip">Ansible</div>
-          <div class="chip">Git</div>
-        </div>
-      </div>
-
-      <div class="section">
+      <div>
         <h2>Языки</h2>
         <div class="muted">Русский — родной<br>Английский — B2</div>
       </div>
@@ -215,71 +123,49 @@
 
     <main class="right">
       <div class="title-main">
-        <div>
-          <h1 class="fade-up">Александр Жданов</h1>
-          <div class="subtitle muted">DevOps Engineer</div>
-        </div>
-        <div class="tag chip" aria-hidden>Kubernetes · Docker · Мониторинг</div>
+        <h1>Александр Жданов</h1>
+        <div class="subtitle">DevOps Engineer</div>
       </div>
 
-      <div class="summary fade-up" style="transition-delay:.03s">
+      <div class="summary">
         Инженер с опытом администрирования Linux-серверов, работы с контейнеризацией и оркестрацией приложений. 
         Специализируюсь на поддержке и улучшении инфраструктуры, мониторинге и автоматизации процессов.
       </div>
 
-      <div class="experience-block fade-up" style="transition-delay:.05s">
+      <div class="experience-block">
         <div class="experience-head">
           <h2>Опыт работы</h2>
-          <div class="experience-date muted">2024 — настоящее время</div>
+          <div class="muted">2024 — настоящее время</div>
         </div>
-
         <article class="job">
           <h3>Инженер по серверной инфраструктуре</h3>
-          <div class="org muted">ООО «СИБИНТЕК» · <a href="https://www.sibintek.ru" target="_blank" rel="noopener noreferrer">sibintek.ru</a></div>
-
+          <div class="org">ООО «СИБИНТЕК-СОФТ» · <a href="https://www.sibintek.ru" target="_blank">sibintek.ru</a></div>
           <ul>
             <li>Администрирование серверов на ОС Linux</li>
             <li>Работа с Docker-контейнерами и оркестрация в Kubernetes</li>
             <li>Настройка и поддержка веб-сервера Nginx</li>
-            <li>Администрирование СУБД PostgreSQL: бэкапы, восстановление</li>
-            <li>Настройка мониторинга на основе Prometheus и Grafana</li>
+            <li>Администрирование PostgreSQL: бэкапы, восстановление</li>
+            <li>Мониторинг на основе Prometheus и Grafana</li>
             <li>Автоматизация задач с помощью Bash-скриптов</li>
             <li>Конфигурация серверов с использованием Ansible</li>
           </ul>
         </article>
       </div>
 
-      <section class="section fade-up" style="transition-delay:.08s">
+      <section class="experience-block">
         <h2>Образование</h2>
         <div class="muted">
-          <p><strong>Национальный исследовательский технологический университет «МИСиС»</strong></p>
-          <p>Институт компьютерных наук, Прикладная информатика</p>
-          <p>Неоконченное высшее (бакалавриат)</p>
+          <p><strong>НИТУ «МИСиС»</strong></p>
+          <p>Институт компьютерных наук, прикладная информатика</p>
+          <p>2021–2026 (бакалавриат, в процессе)</p>
         </div>
       </section>
 
-      <div class="footer fade-up" style="transition-delay:.1s">
+      <div class="footer">
         <div class="muted">Обновлено: 2025</div>
         <div class="muted">© Александр Жданов</div>
       </div>
     </main>
   </div>
-
-  <script>
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-      const extras = document.querySelectorAll('.avatar, .tag');
-      extras.forEach(el => { el.classList.add('fade-up'); obs.observe(el); });
-    });
-  </script>
 </body>
 </html>
