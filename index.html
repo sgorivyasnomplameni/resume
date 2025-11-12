@@ -18,13 +18,13 @@
       --gap:22px;
     }
     *{box-sizing:border-box}
-    body{
+    html, body{
       margin:0;
+      padding:0 18px 0 18px; /* только по горизонтали */
       font-family:Inter, system-ui, sans-serif;
       background:linear-gradient(180deg,var(--bg),#eef4fb);
       color:var(--accent);
       -webkit-font-smoothing:antialiased;
-      padding:32px 18px;
     }
     .paper{
       max-width:1100px;
@@ -65,7 +65,7 @@
       background:var(--card);
       border-radius:var(--radius);
       box-shadow:0 10px 40px rgba(16,24,40,0.06);
-      padding:24px; /* уменьшили с 34px */
+      padding:24px 24px 18px 24px; /* снизу меньше */
     }
     .title-main h1{font-size:28px;margin:0}
     .subtitle{color:var(--muted);font-weight:600;margin-bottom:12px}
@@ -81,7 +81,7 @@
       justify-content:space-between;
       color:var(--muted);
       font-size:13px;
-      margin-top:0; /* убрали лишний отступ */
+      margin-top:0;
     }
     @media(max-width:880px){
       .paper{grid-template-columns:1fr}
@@ -93,7 +93,6 @@
   <div class="paper">
     <aside class="left">
       <div class="avatar">АЖ</div>
-
       <div>
         <h2>Контакты</h2>
         <div class="contact-list">
@@ -103,7 +102,6 @@
           <div>📍 Москва</div>
         </div>
       </div>
-
       <div>
         <h2>Навыки и технологии</h2>
         <div class="skills-grid">
@@ -122,7 +120,6 @@
           <div class="skill-item">ML Pipelines (базовые)</div>
         </div>
       </div>
-
       <div>
         <h2>Языки</h2>
         <div class="muted">Русский — родной<br>Английский — B2</div>
@@ -134,12 +131,10 @@
         <h1>Александр Жданов</h1>
         <div class="subtitle">ML Ops / DevOps Engineer</div>
       </div>
-
       <div class="summary">
         Инженер с опытом администрирования Linux, контейнеризации и CI/CD. Опыт работы с Kubernetes, Helm, мониторингом и автоматизацией процессов. 
         Готов развиваться в ML Ops: поддержка немодельных сервисов, настройка CI/CD пайплайнов и мониторинг инфраструктуры для ML-проектов.
       </div>
-
       <div class="experience-block">
         <div class="experience-head">
           <h2>Опыт работы</h2>
@@ -160,7 +155,6 @@
           </ul>
         </article>
       </div>
-
       <section class="experience-block">
         <h2>Образование</h2>
         <div class="muted">
@@ -169,7 +163,6 @@
           <p>2021–2026 (бакалавриат, в процессе)</p>
         </div>
       </section>
-
       <div class="footer">
         <div class="muted">Обновлено: 2025</div>
         <div class="muted">© Александр Жданов</div>
