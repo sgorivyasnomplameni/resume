@@ -1,190 +1,194 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Жданов Александр — ML Ops / DevOps</title>
-  <meta name="description" content="ML Ops / DevOps · Kubernetes · Docker · CI/CD · Monitoring" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#f6f9ff;
-      --card:#ffffff;
-      --muted:#64748b;
-      --accent:#0f172a;
-      --accent-2:#2563eb;
-      --radius:12px;
-      --gap:22px;
-    }
-    *{box-sizing:border-box;}
-    body{
-      margin:0;
-      font-family:Inter, system-ui, sans-serif;
-      background:linear-gradient(180deg,var(--bg),#eef4fb);
-      color:var(--accent);
-      -webkit-font-smoothing:antialiased;
-      padding:32px 18px;
-    }
-    .paper{
-      max-width:1100px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:300px 1fr;
-      gap:28px;
-    }
-    .left{
-      position:sticky;top:28px;
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:0 8px 30px rgba(16,24,40,0.06);
-      padding:18px;
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-    }
-    .avatar{
-      width:84px;height:84px;
-      border-radius:14px;
-      background:linear-gradient(135deg,var(--accent-2),#06b6d4);
-      display:flex;align-items:center;justify-content:center;
-      color:#fff;font-weight:700;font-size:26px;
-      margin:0 auto 10px;
-    }
-    h2{font-size:15px;margin:0 0 10px;color:var(--accent);}
-    .contact-list{
-      font-size:14px;
-      color:var(--muted);
-      line-height:1.6;
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-    .contact-list a{
-      color:inherit;
-      text-decoration:none;
-    }
-    .skills-grid{display:flex;flex-wrap:wrap;gap:8px;}
-    .skill-item{
-      background:#f8fbff;border-radius:8px;
-      padding:6px 10px;font-size:13px;
-      box-shadow:0 6px 18px rgba(16,24,40,0.03);
-    }
-    .muted{color:var(--muted);font-size:13px;}
-    .right{
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:0 10px 40px rgba(16,24,40,0.06);
-      padding:34px;
-    }
-    .title-main h1{font-size:28px;margin:0;}
-    .subtitle{color:var(--muted);font-weight:600;margin-bottom:12px;}
-    .summary{margin:10px 0 20px;font-size:15px;color:#334155;}
-    .experience-block{margin-top:20px;}
-    .experience-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
-    .job h3{margin:0;font-size:16px;}
-    .job .org{color:var(--muted);font-size:13px;margin-top:4px;}
-    .job ul{margin:10px 0 0;padding-left:18px;}
-    .job li{margin-bottom:6px;line-height:1.5;}
-    .footer{
-      display:flex;
-      justify-content:space-between;
-      color:var(--muted);
-      font-size:13px;
-      margin-top:20px; /* оставляем немного пространства внизу */
-    }
-    @media(max-width:880px){
-      .paper{grid-template-columns:1fr;}
-      .left{position:relative;}
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Жданов Александр — ML Ops / DevOps</title>
+<meta name="description" content="ML Ops / DevOps · Kubernetes · Docker · CI/CD · Monitoring" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f9ff;
+  --card:#ffffff;
+  --muted:#64748b;
+  --accent:#0f172a;
+  --accent-2:#2563eb;
+  --radius:12px;
+  --gap:22px;
+}
+*{box-sizing:border-box}
+html, body {height:100%; margin:0;}
+body{
+  font-family:Inter, system-ui, sans-serif;
+  background:linear-gradient(180deg,var(--bg),#eef4fb);
+  color:var(--accent);
+  -webkit-font-smoothing:antialiased;
+  padding:32px 18px;
+}
+.paper{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:28px;
+  min-height:100%;
+}
+.left{
+  position:sticky; top:28px;
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:0 8px 30px rgba(16,24,40,0.06);
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+.avatar{
+  width:84px;height:84px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--accent-2),#06b6d4);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:700;font-size:26px;
+  margin:0 auto 10px;
+}
+h2{font-size:15px;margin:0 0 10px;color:var(--accent)}
+.contact-list{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.6;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.contact-list a{color:inherit;text-decoration:none}
+.skills-grid{display:flex;flex-wrap:wrap;gap:8px}
+.skill-item{
+  background:#f8fbff;border-radius:8px;
+  padding:6px 10px;font-size:13px;
+  box-shadow:0 6px 18px rgba(16,24,40,0.03);
+}
+.muted{color:var(--muted);font-size:13px}
+.right{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:0 10px 40px rgba(16,24,40,0.06);
+  padding:24px;
+  min-height:100%;
+}
+.title-main h1{font-size:28px;margin:0}
+.subtitle{color:var(--muted);font-weight:600;margin-bottom:12px}
+.summary{margin:10px 0 20px;font-size:15px;color:#334155}
+.experience-block{margin-top:20px}
+.experience-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.job h3{margin:0;font-size:16px}
+.job .org{color:var(--muted);font-size:13px;margin-top:4px}
+.job ul{margin:10px 0 0;padding-left:18px}
+.job li{margin-bottom:6px;line-height:1.5}
+.footer{
+  display:flex;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:13px;
+  margin-top:24px;
+}
+@media(max-width:880px){
+  .paper{grid-template-columns:1fr}
+  .left{position:relative}
+}
+@media print {
+  body {margin:0;}
+  .paper {min-height:auto;}
+  .footer {position:relative; bottom:0;}
+}
+</style>
 </head>
 <body>
-  <div class="paper">
-    <aside class="left">
-      <div class="avatar">АЖ</div>
+<div class="paper">
+<aside class="left">
+  <div class="avatar">АЖ</div>
 
-      <div>
-        <h2>Контакты</h2>
-        <div class="contact-list">
-          <div>📞 +7 (977) 581-62-65</div>
-          <div>✉️ gosurasu@gmail.com</div>
-          <div>📱 Telegram: <a href="https://t.me/ignoretheparty" target="_blank">ignoretheparty</a></div>
-          <div>📍 Москва</div>
-        </div>
-      </div>
-
-      <div>
-        <h2>Навыки и технологии</h2>
-        <div class="skills-grid">
-          <div class="skill-item">Linux</div>
-          <div class="skill-item">Docker</div>
-          <div class="skill-item">Kubernetes</div>
-          <div class="skill-item">Helm</div>
-          <div class="skill-item">Nginx</div>
-          <div class="skill-item">PostgreSQL</div>
-          <div class="skill-item">Prometheus</div>
-          <div class="skill-item">Grafana</div>
-          <div class="skill-item">Bash</div>
-          <div class="skill-item">Git</div>
-          <div class="skill-item">Python</div>
-          <div class="skill-item">CI/CD</div>
-          <div class="skill-item">ML Pipelines (базовые)</div>
-        </div>
-      </div>
-
-      <div>
-        <h2>Языки</h2>
-        <div class="muted">Русский — родной<br>Английский — B2</div>
-      </div>
-    </aside>
-
-    <main class="right">
-      <div class="title-main">
-        <h1>Александр Жданов</h1>
-        <div class="subtitle">ML Ops / DevOps Engineer</div>
-      </div>
-
-      <div class="summary">
-        Инженер с опытом администрирования Linux, контейнеризации и CI/CD. Опыт работы с Kubernetes, Helm, мониторингом и автоматизацией процессов. 
-        Готов развиваться в ML Ops: поддержка немодельных сервисов, настройка CI/CD пайплайнов и мониторинг инфраструктуры для ML-проектов.
-      </div>
-
-      <div class="experience-block">
-        <div class="experience-head">
-          <h2>Опыт работы</h2>
-          <div class="muted">10.2024 — 10.2025</div>
-        </div>
-        <article class="job">
-          <h3>Инженер по серверной инфраструктуре</h3>
-          <div class="org">ООО «СИБИНТЕК-СОФТ» · <a href="https://www.sibintek.ru" target="_blank">sibintek.ru</a></div>
-          <ul>
-            <li>Администрирование серверов на ОС Linux</li>
-            <li>Работа с Docker-контейнерами и оркестрация в Kubernetes</li>
-            <li>Настройка и поддержка веб-сервера Nginx</li>
-            <li>Администрирование PostgreSQL: бэкапы, восстановление</li>
-            <li>Мониторинг на основе Prometheus и Grafana</li>
-            <li>Автоматизация задач с помощью Bash-скриптов</li>
-            <li>Поддержка немодельных сервисов и ML пайплайнов (базовый уровень)</li>
-            <li>Настройка CI/CD для сервисов с использованием GitLab CI/Argo</li>
-          </ul>
-        </article>
-      </div>
-
-      <section class="experience-block">
-        <h2>Образование</h2>
-        <div class="muted">
-          <p><strong>НИТУ «МИСиС»</strong></p>
-          <p>Институт компьютерных наук, прикладная информатика</p>
-          <p>2021–2026 (бакалавриат, в процессе)</p>
-        </div>
-      </section>
-
-      <div class="footer">
-        <div class="muted">Обновлено: 2025</div>
-        <div class="muted">© Александр Жданов</div>
-      </div>
-    </main>
+  <div>
+    <h2>Контакты</h2>
+    <div class="contact-list">
+      <div>📞 <a href="tel:+79775816265">+7 (977) 581-62-65</a></div>
+      <div>✉️ gosurasu@gmail.com</div>
+      <div>📱 <a href="https://t.me/ignoretheparty" target="_blank">Telegram</a></div>
+      <div>📍 Москва</div>
+    </div>
   </div>
+
+  <div>
+    <h2>Навыки и технологии</h2>
+    <div class="skills-grid">
+      <div class="skill-item">Linux</div>
+      <div class="skill-item">Docker</div>
+      <div class="skill-item">Kubernetes</div>
+      <div class="skill-item">Helm</div>
+      <div class="skill-item">Nginx</div>
+      <div class="skill-item">PostgreSQL</div>
+      <div class="skill-item">Prometheus</div>
+      <div class="skill-item">Grafana</div>
+      <div class="skill-item">Bash</div>
+      <div class="skill-item">Git</div>
+      <div class="skill-item">Python</div>
+      <div class="skill-item">CI/CD</div>
+      <div class="skill-item">ML Pipelines (базовые)</div>
+    </div>
+  </div>
+
+  <div>
+    <h2>Языки</h2>
+    <div class="muted">Русский — родной<br>Английский — B2</div>
+  </div>
+</aside>
+
+<main class="right">
+  <div class="title-main">
+    <h1>Александр Жданов</h1>
+    <div class="subtitle">ML Ops / DevOps Engineer</div>
+  </div>
+
+  <div class="summary">
+    Инженер с опытом администрирования Linux, контейнеризации и CI/CD. Опыт работы с Kubernetes, Helm, мониторингом и автоматизацией процессов. 
+    Готов развиваться в ML Ops: поддержка немодельных сервисов, настройка CI/CD пайплайнов и мониторинг инфраструктуры для ML-проектов.
+  </div>
+
+  <div class="experience-block">
+    <div class="experience-head">
+      <h2>Опыт работы</h2>
+      <div class="muted">10.2024 — 10.2025</div>
+    </div>
+    <article class="job">
+      <h3>Инженер по серверной инфраструктуре</h3>
+      <div class="org">ООО «СИБИНТЕК-СОФТ» · <a href="https://www.sibintek.ru" target="_blank">sibintek.ru</a></div>
+      <ul>
+        <li>Администрирование серверов на ОС Linux</li>
+        <li>Работа с Docker-контейнерами и оркестрация в Kubernetes</li>
+        <li>Настройка и поддержка веб-сервера Nginx</li>
+        <li>Администрирование PostgreSQL: бэкапы, восстановление</li>
+        <li>Мониторинг на основе Prometheus и Grafana</li>
+        <li>Автоматизация задач с помощью Bash-скриптов</li>
+        <li>Поддержка немодельных сервисов и ML пайплайнов (базовый уровень)</li>
+        <li>Настройка CI/CD для сервисов с использованием GitLab CI/Argo</li>
+      </ul>
+    </article>
+  </div>
+
+  <section class="experience-block">
+    <h2>Образование</h2>
+    <div class="muted">
+      <p><strong>НИТУ «МИСиС»</strong></p>
+      <p>Институт компьютерных наук, прикладная информатика</p>
+      <p>2021–2026 (бакалавриат, в процессе)</p>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="muted">Обновлено: 2025</div>
+    <div class="muted">© Александр Жданов</div>
+  </div>
+</main>
+</div>
 </body>
 </html>
