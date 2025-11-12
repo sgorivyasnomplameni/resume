@@ -65,7 +65,7 @@
       background:var(--card);
       border-radius:var(--radius);
       box-shadow:0 10px 40px rgba(16,24,40,0.06);
-      padding:34px;
+      padding:24px; /* уменьшили с 34px */
     }
     .title-main h1{font-size:28px;margin:0}
     .subtitle{color:var(--muted);font-weight:600;margin-bottom:12px}
@@ -76,7 +76,13 @@
     .job .org{color:var(--muted);font-size:13px;margin-top:4px}
     .job ul{margin:10px 0 0;padding-left:18px}
     .job li{margin-bottom:6px;line-height:1.5}
-    .footer{margin-top:20px;display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+    .footer{
+      display:flex;
+      justify-content:space-between;
+      color:var(--muted);
+      font-size:13px;
+      margin-top:0; /* убрали лишний отступ */
+    }
     @media(max-width:880px){
       .paper{grid-template-columns:1fr}
       .left{position:relative}
